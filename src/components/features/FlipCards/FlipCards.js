@@ -9,7 +9,7 @@ const FlipCards = ({cards, onAllCardsComplete}) => {
       const extendedData = cards.map((card, i) => {
          return {
             ...card,
-            disabled: false, // !!TODO: Add logic so only the first card is enabled by default
+            disabled: i === 0 ? false : true, // !!TODO: Add logic so only the first card is enabled by default
             completed: false,
          };
       });
@@ -18,10 +18,14 @@ const FlipCards = ({cards, onAllCardsComplete}) => {
 
    // add logic to check all cards complete after every interaction
    useEffect(() => {
-      if(!cardData.length)return;
+      if(!cardData.length) return;
 
       // !!TODO: Add logic to check if all cards are complete after every interaction
       //ADD CODE HERE....
+      const isNotCompleted = cardData.some(obj => obj.completed === false);
+
+      if(!isNotCompleted)
+         onAllCardsComplete();
 
    }, [cardData, onAllCardsComplete]);
 
@@ -38,6 +42,8 @@ const FlipCards = ({cards, onAllCardsComplete}) => {
 
       // !!TODO: Add logic to enabled the next card when the previous card is completed
       //ADD CODE HERE....
+      if(newCardData[index])
+      newCardData[index].disabled = false;
 
       setCardData(newCardData);
    };

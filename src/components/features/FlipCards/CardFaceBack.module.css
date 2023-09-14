@@ -8,7 +8,7 @@
    box-sizing: border-box; /* Opera/IE 8+ */
    height: 78%;
    position: relative;
-
+   padding-top: 9%;
 }
 
 .circleWrapper {
@@ -76,7 +76,7 @@
 }
 .description p {
    padding: 0px;
-   margin: 0 auto;
+   margin: 1% auto 0px auto;
    width: 90%;
    font-size: 2.1vw;
 }

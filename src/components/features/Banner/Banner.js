@@ -15,7 +15,7 @@ const Banner = ({ data, bannerStyle, visible = true }) => {
             </div>
             <div className={styles.content}>
                <h1>{title}</h1>
-               <div>{description}</div>  {/* !!TODO: Format HTML correctly*/}
+               <div dangerouslySetInnerHTML={{__html:description}} /> {/* !!TODO: Format HTML correctly*/}
             </div>
          </div>
       </div>
